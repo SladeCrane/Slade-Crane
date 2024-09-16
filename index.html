@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Slades Personal Website</title>
+</head>
+<body>
+    <div class= topnav>
+        <a class="active" href="#container1">Slade Crane</a> 
+        <a href="#container1">About</a>
+        <a href="#experience">Experiences</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+     <div class="container1" id="container1">
+        <div class="text-section">
+            <p class="header">Website Content and Digital<br />Marketing Specialist</p>
+            <p class="info1">
+              I’m Slade Crane, a digital marketing specialist<br />with a technical background.
+            </p>
+            <p class="info2">
+              I graduated from Penn State with a Bachelor’s degree in Marketing<br /> and a Minor in Information Systems and
+              Technology.<br /><br />I have experience managing and creating content for multiple companies websites, <br />along
+              with running marketing campaigns and creating content for a technical AI program.
+            </p>
+            <div class="button-container">
+                <a href="c:\Users\ewcra\Downloads\Slade_Crane_Resume_09_12_24.pdf" class="custom-button" target="_blank">Download Resume</a>
+                <a href="https://www.linkedin.com/in/sladecrane/" class="custom-button" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="slade_img">
+            <img src="slade_img.png" alt="Slade Crane's photo" />
+        </div>
+            
+    </div>
+    <div class="experience-title">
+        <p id="experience">Experiences</p>
+    </div>
+    <script>
+        function scrollToSection(sectionId) {
+            var element = document.getElementById(sectionId);
+            var offset = 1200; // Adjust this value for an offset
+            var elementPosition = element.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+        </script>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://www.caperesorts.com/" class="timeline-text-link" target="_blank">
+                <p class="timeline-text">Cape Resorts</p>
+            </a>
+            <div class="hover-text">Marketing Intern | May 2021-August 2024</div>
+            <div class="timeline-description">Assisted in website content updates and social media marketing to increase engagement.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://www.pgnleaders.org/pennstate" class="timeline-text-link" target="_blank">
+                <p class="timeline-text">PGN</p>
+            </a>
+            <div class="hover-text">VP of Recruitment & Member | December 2021- May 2024</div>
+            <div class="timeline-description">Organized recruitment events and created marketing materials to boost organization presence.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://www.certainteed.com/" class="timeline-text-link " target="_blank">
+                <p class="timeline-text">CertainTeed</p>
+            </a>
+            <div class="hover-text">Website Content Intern | 2023-2024</div>
+            <div class="timeline-description">Developed and optimized over 400 webpages with a focus on SEO improvements and brand consistency.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://nielseniq.com/global/en/careers/nielseniq-university/" class="timeline-text-link" target="_blank">
+                <p class="timeline-text">NielsenIQ</p>
+            </a>
+            <div class="hover-text">Case Competition Participant | August 2023-December 2023</div>
+            <div class="timeline-description">Analyzed marketing data and presented solutions in a high-profile case competition.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://nittanyai.psu.edu/alliance-programs/nittany-ai-advance/" class="timeline-text-link" target="_blank">
+                <p class="timeline-text">Nittany AI Advance</p>
+            </a>
+            <div class="hover-text">Marketing Intern | January 2024-May 2024</div>
+            <div class="timeline-description">Contributed to AI project showcases and blog posts, highlighting innovative AI developments.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="circle"></div>
+            <a href="https://clay-team.com/" class="timeline-text-link" target="_blank">
+                <p class="timeline-text">Ayse-Clay Team</p>
+            </a>
+            <div class="hover-text">Website Content Manager | July 2024-Present</div>
+            <div class="timeline-description">Managed website updates, created content, and improved SEO for increased traffic and visibility.</div>
+        </div>
+    </div>
+    </div>
+    <div class="projects_title" id="projects"> <p>Projects</p>
+    </div>
+    <div class="projects-section">
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Textron UI Overhaul</h3>
+                <p>UI revamp to improve user experience of Textron's ticketing service.</p>
+                <a href="https://www.figma.com/proto/OO8fAvqgsUV01M0STlWWcm/Textron?node-id=1-20&t=kNUa5LjhlQtILJZU-1" target="_blank">View Project</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Ayse-Clay Team Blog</h3>
+                <p>Blog written about Malvern, PA to attract potential homebuyers.</p>
+                <a href="https://clay-team.com/blog/f/your-guide-to-local-favorites-in-malvern-pa" target="_blank">View Project</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Nittany AI Project Showcase</h3>
+                <p>Created and showcased poster boards for different Nittany AI Advance teams.</p>
+                <a href="link-to-project" target="_blank">View Project</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Nittany AI Advance Blog</h3>
+                <p>Wrote a blog post highlighting an excelling member of Nittany AI Advance.</p>
+                <a href="https://nittanyai.psu.edu/blog/nittany-ai-advance-intern-highlight-elena-choi/" target="_blank">View Project</a>
+            </div>
+        </div>
+        <!-- New project cards -->
+        <div class="project-card">
+            <div class="project-content">
+                <h3>CertainTeed Website Redesign</h3>
+                <p>Created new pages for CertainTeeds website redesign project.</p>
+                <a href="https://www.certainteed.com/" target="_blank">View Project</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Accotink Academy</h3>
+                <p>Managed and updated Accotink Academy's website to bring in new clients.</p>
+                <a href="https://www.accotinkacademy.com/" target="_blank">View Project</a>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h2>Contact Me</h2>
+        <form action="send_email.php" method="POST" class="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+      
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+      
+          <button type="submit" class="custom-button">Send Message</button>
+        </form>
+      </div>
+      <div>
+        <p class="note">Note: This website was made by myself using HTML, CSS, and Javascript.</p>
+      </div>
+    </body>

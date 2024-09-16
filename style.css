@@ -1,0 +1,413 @@
+
+body {
+    background-color: #F1EFEC ;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 60px;
+}
+
+.topnav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  Width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #283A2C;
+  overflow: hidden;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  height: 80px; /* Adjust height as needed */
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center items */
+  padding: 0 20px; /* Adjust padding as needed */
+}
+
+.topnav a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Karla", Helvetica;
+  font-weight: 400;
+  line-height: 1; /* Ensure line height doesn't affect vertical centering */
+}
+
+  .topnav a:hover, .topnav a.active:hover {
+    color: black;
+  }
+
+  .topnav a.active {
+    color: white;
+    font-family: "Karla", Helvetica;
+    font-weight: 600;
+    font-size: 24px;
+    margin-right: auto; /* Keeps the active item aligned left */
+    margin-left: 40px;
+  }
+
+ /* Add styles for the image and text layout */
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure both image and text are at the same vertical level */
+  padding: 20px;
+}
+
+.header, .info1, .info2 {
+  font-family: 'Raleway', sans-serif; /* Use Raleway font */
+  color: #283A2C; /* Adjust color as needed */
+  margin-left: 200px;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.info1, .info2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style for the button container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically aligns the buttons with the text */
+  margin-top: 30px; /* Adds space between the text and buttons */
+  margin-left: 200px;
+}
+
+/* Style for the buttons */
+.custom-button {
+  display: inline-block;
+  background-color: #DADDC5;
+  color: #283A2C; /* Dark green text color */
+  padding: 15px 30px; /* Increased size of buttons */
+  border-radius: 30px; /* Rounded corners */
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px; /* Larger font size */
+  text-decoration: none;
+  margin: 0 15px; /* More space between the buttons */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the buttons */
+.custom-button:hover {
+  background-color: #C5C7A6; /* Slightly darker shade on hover */
+  color: #fff; /* Change text color to white on hover */
+}
+
+.slade_img {
+  background-color: #283A2C; /* Add background padding color */
+  padding: 20px;
+  border-radius: 75px; /* Optional rounded corners */
+  margin-left: 20px; /* Add some space between the text and image */
+  margin-top: 50px;
+  margin-right: 40px;
+}
+
+.slade_img img {
+  max-width: 2500px; /* Set a fixed width for the image */
+  height: auto;
+  display: block;
+}
+
+/* Ensure that the container is responsive on smaller screens */
+@media (max-width: 768px) {
+  .container1 {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .slade_img {
+      margin-left: 0;
+      margin-bottom: 20px;
+  }
+
+  .slade_img img {
+      max-width: 80%; /* Make the image smaller on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .slade_img img {
+      max-width: 60%; /* Further reduce the size of the image on very small screens */
+  }
+}
+
+.experience-title, .projects_title p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 60px;
+  color: #283A2C;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 200px;
+}
+
+/* Timeline container */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 50px auto;
+  padding: 20px 0;
+  width: 80%;
+  position: relative;
+}
+
+/* Adjust alignment of circles with the line */
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 35px; /* Adjust as needed to perfectly center the circle */
+  padding-top: 105px;
+}
+
+
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #283A2C;
+  border-radius: 50%;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #283A2C;
+  z-index: 0;
+}
+
+.timeline-item:hover .circle {
+  transform: translateY(-10px); /* Moves the circle 10px upwards */
+  background-color: #A0522D; /* Optional: Change color on hover as well */
+}
+
+/* Text below each timeline item */
+.timeline-text {
+  margin-top: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  text-align: center;
+}
+
+.timeline-text-link:hover .timeline-text {
+  text-decoration: underline; /* Optional: add underline on hover */
+  color: #A0522D; /* Optional: change text color on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .timeline {
+      flex-direction: column;
+  }
+
+  .timeline-item {
+      margin-bottom: 20px;
+  }
+
+  .timeline:before {
+      display: none; /* Hide the line on small screens */
+  }
+}
+
+
+/* For smaller screens, always put the text below the circles */
+@media (max-width: 768px) {
+  .timeline-item .timeline-text {
+      margin-top: 10px;
+      margin-bottom: 0;
+  }
+}
+
+/* Style for the hover text */
+.hover-text {
+  display: none;
+  position: absolute;
+  bottom: 200px;
+  background-color: rgba(255, 255, 255, 0.9); /* Clear background */
+  border: 1px solid #283A2C;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: #283A2C;
+  text-align: center;
+  z-index: 2;
+  width: 200px;
+}
+
+/* Show the hover text when the circle is hovered */
+.timeline-item:hover .hover-text {
+  display: block;
+}
+
+/* Ensure the text box doesn't overlap too much */
+.timeline-item {
+  position: relative;
+  margin-top: 35px; /* Adjust as needed to ensure hover text doesn't overlap the circles */
+}
+
+/* Change circle color on hover */
+.timeline-item:hover .circle {
+  background-color: #A0522D;
+}
+
+.timeline-description {
+  background-color: #f1efec; /* Matches background for a clean look */
+  border: 1px solid #283A2C;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 80%;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: #283A2C;
+  position: relative;
+}
+
+/* Style for the projects section */
+.projects-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Two columns */
+  grid-gap: 20px; /* Space between project cards */
+  margin-top: 30px;
+  justify-items: center; /* Centers the project cards */
+  align-items: center; /* Ensures even vertical spacing */
+  width: 100%; /* Ensures full-width layout */
+  max-width: 1200px; /* Optional: restrict max-width */
+  margin: 0 auto; /* Center the grid container */
+}
+
+/* Style for each project card */
+.project-card {
+  background-color: #f1efec;
+  width: 100%; /* Ensures each card takes full width of grid column */
+  max-width: 400px; /* Optional: restrict max width */
+  height: auto; /* Allow height to adjust based on content */
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center; /* Center text within each card */
+  display: flex;
+  flex-direction: column; /* Aligns content vertically */
+  justify-content: space-between; /* Ensures content is spaced within the card */
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Lifts the card slightly on hover */
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+}
+
+/* Content inside each card */
+.project-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-content h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  color: #283A2C;
+  margin-bottom: 10px;
+}
+
+.project-content p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.project-content a {
+  display: inline-block;
+  background-color: #DADDC5;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #283A2C;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.project-content a:hover {
+  background-color: #C5C7A6;
+  color: #fff;
+}
+
+#contact {
+  margin: 50px auto;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+#contact h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+  color: #283A2C;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: #283A2C;
+  text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 10px;
+  border: 1px solid #DADDC5;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background-color: #DADDC5;
+  color: #283A2C;
+  padding: 15px;
+  border-radius: 30px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #C5C7A6;
+  color: #fff;
+}
