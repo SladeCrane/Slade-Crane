@@ -1,25 +1,27 @@
 
 body {
-    background-color: #F1EFEC ;
+    background-color: #F1EFEC;
     margin: 0;
     font-family: 'Raleway', sans-serif;
     padding-top: 60px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .topnav {
   position: fixed;
   top: 0;
   z-index: 1000;
-  Width: 100%;
+    width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #283A2C;
   overflow: hidden;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  height: 80px; /* Adjust height as needed */
-  display: flex; /* Use flexbox */
-  align-items: center; /* Vertically center items */
-  padding: 0 20px; /* Adjust padding as needed */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
 }
 
 .topnav a {
@@ -48,8 +50,37 @@ body {
 .container1 {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ensure both image and text are at the same vertical level */
+    align-items: center;
+    padding: 20px;
+    gap: 40px;
+    max-width: 1440px;
+    margin: 120px auto 0; /* Added top margin to create space below header */
+    flex-wrap: wrap;
+}
+
+.text-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.slade_img {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #283A2C;
+    border-radius: 75px;
   padding: 20px;
+}
+
+.slade_img img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 55px;
 }
 
 .header, .info1, .info2 {
@@ -101,41 +132,45 @@ body {
   color: #fff; /* Change text color to white on hover */
 }
 
-.slade_img {
-  background-color: #283A2C; /* Add background padding color */
-  padding: 20px;
-  border-radius: 75px; /* Optional rounded corners */
-  margin-left: 20px; /* Add some space between the text and image */
-  margin-top: 50px;
-  margin-right: 40px;
-}
+@media (max-width: 1200px) {
+    .container1 {
+        margin: 100px auto 0;
+        padding: 20px 40px;
+    }
 
-.slade_img img {
-  max-width: 2500px; /* Set a fixed width for the image */
-  height: auto;
-  display: block;
-}
+    .text-section, .slade_img {
+        flex: 0 1 100%;
+    }
 
-/* Ensure that the container is responsive on smaller screens */
-@media (max-width: 768px) {
-  .container1 {
-      flex-direction: column;
-      text-align: center;
-  }
+    .header, .info1, .info2 {
+        margin-left: 0;
+        padding: 0 20px;
+    }
 
-  .slade_img {
+    .button-container {
       margin-left: 0;
-      margin-bottom: 20px;
-  }
-
-  .slade_img img {
-      max-width: 80%; /* Make the image smaller on smaller screens */
+        flex-wrap: wrap;
+        gap: 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .slade_img img {
-      max-width: 60%; /* Further reduce the size of the image on very small screens */
+    .header {
+        font-size: 28px;
+    }
+
+    .info1 {
+        font-size: 16px;
+    }
+
+    .info2 {
+        font-size: 14px;
+    }
+
+    .custom-button {
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
   }
 }
 
@@ -150,137 +185,249 @@ body {
 
 /* Timeline container */
 .timeline {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 50px auto;
-  padding: 20px 0;
-  width: 80%;
-  position: relative;
+    position: relative;
+    margin: 100px auto;
+    padding: 40px 0;
+    width: 90%;
+    max-width: 1200px;
 }
 
-/* Adjust alignment of circles with the line */
-.timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-top: 35px; /* Adjust as needed to perfectly center the circle */
-  padding-top: 120px;
+/* Timeline items container */
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    padding-left: 50px;
 }
 
-
+/* Timeline marker (circle and line) */
+.timeline-marker {
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .circle {
-  width: 30px;
-  height: 30px;
-  background-color: #283A2C;
-  border-radius: 50%;
-  position: relative;
-  top: 0;
-  z-index: 1;
-  transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    background-color: #283A2C;
+    border-radius: 50%;
+    border: 4px solid #F1EFEC;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
 
-.timeline:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background-color: #283A2C;
-  z-index: 0;
+.line {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% + 40px);
+    background-color: #283A2C;
+    opacity: 0.2;
+    transform: translateX(-50%);
 }
 
-.timeline-item:hover .circle {
-  transform: translateY(-10px); /* Moves the circle 10px upwards */
-  background-color: #A0522D; /* Optional: Change color on hover as well */
-}
-
-/* Text below each timeline item */
-.timeline-text {
-  margin-top: 10px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  color: #000000;
-  text-align: center;
-}
-
-.timeline-text-link:hover .timeline-text {
-  text-decoration: underline; /* Optional: add underline on hover */
-  color: #A0522D; /* Optional: change text color on hover */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .timeline {
-      flex-direction: column;
-  }
-
-  .timeline-item {
-      margin-bottom: 20px;
-  }
-
-  .timeline:before {
-      display: none; /* Hide the line on small screens */
-  }
-}
-
-
-/* For smaller screens, always put the text below the circles */
-@media (max-width: 768px) {
-  .timeline-item .timeline-text {
-      margin-top: 10px;
-      margin-bottom: 0;
-  }
-}
-
-/* Style for the hover text */
-.hover-text {
-  display: none;
-  position: absolute;
-  bottom: 200px;
-  background-color: rgba(255, 255, 255, 0.9); /* Clear background */
-  border: 1px solid #283A2C;
-  padding: 10px;
-  border-radius: 5px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  color: #283A2C;
-  text-align: center;
-  z-index: 2;
-  width: 200px;
-}
-
-/* Show the hover text when the circle is hovered */
-.timeline-item:hover .hover-text {
-  display: block;
-}
-
-/* Ensure the text box doesn't overlap too much */
+/* Timeline item */
 .timeline-item {
-  position: relative;
-  margin-top: 35px; /* Adjust as needed to ensure hover text doesn't overlap the circles */
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
 }
 
-/* Change circle color on hover */
-.timeline-item:hover .circle {
-  background-color: #A0522D;
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content wrapper */
+.timeline-content {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #283A2C;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Header styles */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.timeline-text {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #283A2C;
+}
+
+.timeline-date {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.timeline-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #A0522D;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
 .timeline-description {
-  background-color: #f1efec; /* Matches background for a clean look */
-  border: 1px solid #283A2C;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 10px;
-  width: 80%;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  color: #283A2C;
-  position: relative;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #283A2C;
+}
+
+/* Link styles */
+.timeline-text-link {
+    text-decoration: none;
+    color: #283A2C;
+    transition: color 0.3s ease;
+}
+
+.timeline-text-link:hover {
+    color: #A0522D;
+}
+
+/* Hover effects */
+.timeline-item:hover .circle {
+    transform: scale(1.2);
+    background-color: #A0522D;
+    border-color: #ffffff;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:hover .timeline-content::before {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .timeline {
+        padding: 30px 0;
+    }
+
+    .timeline-items {
+        padding-left: 40px;
+    }
+
+    .timeline-marker {
+        left: -40px;
+        width: 40px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding: 20px 0;
+    }
+
+    .timeline-items {
+        padding-left: 35px;
+        gap: 40px;
+    }
+
+    .timeline-marker {
+        left: -35px;
+        width: 35px;
+    }
+
+    .circle {
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-text {
+        font-size: 20px;
+    }
+
+    .timeline-role {
+        font-size: 16px;
+    }
+
+    .timeline-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        width: 95%;
+        padding: 15px 0;
+    }
+
+    .timeline-items {
+        padding-left: 30px;
+        gap: 30px;
+    }
+
+    .timeline-marker {
+        left: -30px;
+        width: 30px;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .timeline-date {
+        font-size: 13px;
+    }
 }
 
 /* Style for the projects section */
@@ -410,4 +557,61 @@ body {
 .contact-form button:hover {
   background-color: #C5C7A6;
   color: #fff;
+}
+
+/* Responsive styles for container1 */
+.container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 120px auto 0; /* Added top margin to create space below header */
+}
+
+@media (max-width: 1200px) {
+  .container1 {
+    padding: 20px 40px;
+  }
+  
+  .header, .info1, .info2 {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .button-container {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container1 {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin: 80px auto 0;
+  }
+
+  .slade_img {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .text-section {
+    width: 100%;
+  }
+
+  .header {
+    font-size: 32px;
+  }
+
+  .info1 {
+    font-size: 18px;
+  }
+
+  .info2 {
+    font-size: 16px;
+  }
 }
