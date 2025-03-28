@@ -1,52 +1,288 @@
-
-body {
-    background-color: #F1EFEC;
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-    padding-top: 60px;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+* Global Styles and Variables */
+:root {
+    /* Color System */
+    --color-primary: #283A2C;
+    --color-primary-light: #3A4F3E;
+    --color-secondary: #A0522D;
+    --color-secondary-light: #B66B44;
+    --color-background: #F1EFEC;
+    --color-surface: #FFFFFF;
+    --color-accent: #DADDC5;
+    --color-accent-dark: #C5C7A6;
+    --color-text: #283A2C;
+    --color-text-light: #666666;
+    
+    /* Typography */
+    --font-primary: 'Raleway', sans-serif;
+    --font-secondary: 'Karla', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 30px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
 }
 
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Navigation */
 .topnav {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-    width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #283A2C;
-  overflow: hidden;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--color-primary);
+    padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
     align-items: center;
-    padding: 0 20px;
     justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.topnav.scrolled {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: rgba(40, 58, 44, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .topnav a {
-  color: #f2f2f2;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-family: "Karla", Helvetica;
-  font-weight: 400;
-  line-height: 1; /* Ensure line height doesn't affect vertical centering */
+    color: var(--color-surface);
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
 }
 
-  .topnav a:hover, .topnav a.active:hover {
-    color: black;
-  }
+.topnav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
 
-  .topnav a.active {
-    color: white;
-    font-family: "Karla", Helvetica;
+.topnav a.active {
     font-weight: 600;
-    font-size: 24px;
-    margin-right: auto; /* Keeps the active item aligned left */
-    margin-left: 40px;
-  }
+    font-size: 1.5rem;
+    margin-right: auto;
+}
 
- /* Add styles for the image and text layout */
+/* Buttons */
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+    text-align: center;
+}
+
+.custom-button:hover {
+    background-color: var(--color-accent-dark);
+    color: var(--color-surface);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Container */
+.container1 {
+    max-width: 1440px;
+    margin: 120px auto 0;
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+/* Text Section */
+.text-section {
+    flex: 1;
+    max-width: 800px;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+}
+
+.info1 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.info2 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Image Section */
+.slade_img {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+}
+
+.slade_img img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-normal);
+}
+
+.slade_img:hover img {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container1 {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .text-section, .slade_img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .header {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 2rem;
+    }
+
+    .topnav {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .topnav a {
+        font-size: 0.9rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .topnav a.active {
+        font-size: 1.25rem;
+    }
+
+    .text-section {
+        padding: var(--spacing-md);
+    }
+
+    .header {
+        font-size: 2.5rem;
+    }
+
+    .info1 {
+        font-size: 1.25rem;
+    }
+
+    .info2 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topnav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .topnav a.active {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .custom-button {
+        width: 100%;
+        margin: var(--spacing-xs) 0;
+    }
+}
+
+/* Add styles for the image and text layout */
 .container1 {
   display: flex;
   justify-content: space-between;
@@ -86,7 +322,7 @@ body {
 .header, .info1, .info2 {
   font-family: 'Raleway', sans-serif; /* Use Raleway font */
   color: #283A2C; /* Adjust color as needed */
-  margin-left: 200px;
+  margin-left: 0;
 }
 
 .header {
@@ -105,11 +341,14 @@ body {
 
 /* Style for the button container */
 .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Vertically aligns the buttons with the text */
-  margin-top: 30px; /* Adds space between the text and buttons */
-  margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: 0;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-accent);
+    width: 100%;
 }
 
 /* Style for the buttons */
@@ -183,11 +422,36 @@ body {
   margin-top: 200px;
 }
 
+/* Timeline Section */
+.experience-title {
+    text-align: center;
+    margin: var(--spacing-xl) 0;
+}
+
+.experience-title p {
+    font-size: 3rem;
+    color: var(--color-text);
+    position: relative;
+    display: inline-block;
+}
+
+.experience-title p::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-sm);
+}
+
 /* Timeline container */
 .timeline {
     position: relative;
-    margin: 100px auto;
-    padding: 40px 0;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-lg) 0;
     width: 90%;
     max-width: 1200px;
 }
@@ -196,17 +460,17 @@ body {
 .timeline-items {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: var(--spacing-xl);
     position: relative;
-    padding-left: 50px;
+    padding-left: 60px;
 }
 
-/* Timeline marker (circle and line) */
+/* Timeline marker */
 .timeline-marker {
     position: absolute;
-    left: -50px;
+    left: -60px;
     top: 0;
-    width: 50px;
+    width: 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -214,22 +478,37 @@ body {
 }
 
 .circle {
-    width: 20px;
-    height: 20px;
-    background-color: #283A2C;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
     border-radius: 50%;
-    border: 4px solid #F1EFEC;
-    transition: all 0.3s ease;
+    border: 4px solid var(--color-background);
+    transition: all var(--transition-normal);
     z-index: 2;
+    position: relative;
+}
+
+.circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-background);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
 }
 
 .line {
     position: absolute;
-    top: 20px;
+    top: 24px;
     left: 50%;
     width: 2px;
     height: calc(100% + 40px);
-    background-color: #283A2C;
+    background-color: var(--color-primary);
     opacity: 0.2;
     transform: translateX(-50%);
 }
@@ -264,11 +543,11 @@ body {
 
 /* Content wrapper */
 .timeline-content {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
 }
@@ -280,9 +559,9 @@ body {
     top: 0;
     width: 4px;
     height: 100%;
-    background-color: #283A2C;
+    background-color: var(--color-primary);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-normal);
 }
 
 /* Header styles */
@@ -290,60 +569,60 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-md);
 }
 
 .timeline-text {
     margin: 0;
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #283A2C;
+    color: var(--color-text);
 }
 
 .timeline-date {
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    color: #666;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
     font-weight: 500;
 }
 
 .timeline-role {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    color: #A0522D;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
     font-weight: 500;
 }
 
 .timeline-description {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-size: 1rem;
     line-height: 1.6;
-    color: #283A2C;
+    color: var(--color-text);
 }
 
 /* Link styles */
 .timeline-text-link {
     text-decoration: none;
-    color: #283A2C;
-    transition: color 0.3s ease;
+    color: var(--color-text);
+    transition: color var(--transition-normal);
 }
 
 .timeline-text-link:hover {
-    color: #A0522D;
+    color: var(--color-secondary);
 }
 
 /* Hover effects */
 .timeline-item:hover .circle {
     transform: scale(1.2);
-    background-color: #A0522D;
-    border-color: #ffffff;
+    background-color: var(--color-secondary);
+    border-color: var(--color-surface);
+}
+
+.timeline-item:hover .circle::after {
+    opacity: 1;
 }
 
 .timeline-item:hover .timeline-content {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .timeline-item:hover .timeline-content::before {
@@ -353,36 +632,42 @@ body {
 /* Responsive Design */
 @media (max-width: 992px) {
     .timeline {
-        padding: 30px 0;
+        padding: var(--spacing-md) 0;
     }
 
     .timeline-items {
-        padding-left: 40px;
+        padding-left: 50px;
+        gap: var(--spacing-lg);
     }
 
     .timeline-marker {
-        left: -40px;
-        width: 40px;
+        left: -50px;
+        width: 50px;
     }
 
-    .timeline-content {
-        padding: 20px;
+    .circle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .line {
+        top: 20px;
     }
 }
 
 @media (max-width: 768px) {
     .timeline {
-        padding: 20px 0;
+        padding: var(--spacing-sm) 0;
     }
 
     .timeline-items {
-        padding-left: 35px;
-        gap: 40px;
+        padding-left: 40px;
+        gap: var(--spacing-md);
     }
 
     .timeline-marker {
-        left: -35px;
-        width: 35px;
+        left: -40px;
+        width: 40px;
     }
 
     .circle {
@@ -391,42 +676,42 @@ body {
     }
 
     .timeline-text {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
     .timeline-role {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .timeline-description {
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .timeline {
         width: 95%;
-        padding: 15px 0;
+        padding: var(--spacing-sm) 0;
     }
 
     .timeline-items {
-        padding-left: 30px;
-        gap: 30px;
+        padding-left: 35px;
+        gap: var(--spacing-md);
     }
 
     .timeline-marker {
-        left: -30px;
-        width: 30px;
+        left: -35px;
+        width: 35px;
     }
 
     .timeline-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 5px;
+        gap: var(--spacing-xs);
     }
 
     .timeline-date {
-        font-size: 13px;
+        font-size: 0.8rem;
     }
 }
 
